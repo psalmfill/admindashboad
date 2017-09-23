@@ -263,18 +263,18 @@ desired effect
         <li class="header">ADMIN CONTROLS</li>
         <!-- Optionally, you can add icons to the links -->
         <li><a href="index.html"><i class="fa fa-dashboard"></i> <span>DashBoard</span></a></li>
-        <li class="active"><a href="#"><i class="fa fa-group"></i> <span>Manage Users</span></a></li>
+        <li><a href="manageuser.html"><i class="fa fa-group"></i> <span>Manage Users</span></a></li>
         <li><a href="#"><i class="fa fa-group"></i> <span>Banned Users</span></a></li>
         <li><a href="#"><i class="fa fa-briefcase"></i> <span>Manage Wallet</span></a></li>
         <li><a href="#"><i class="fa fa-dollar"></i> <span>Currencies</span></a></li>
         <li class="treeview">
-          <a href="transaction.html"><i class="fa fa-link"></i> <span>Transaction</span>
+          <a href="#"><i class="fa fa-link"></i> <span>Transaction</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Transaction Detail</a></li>
+            <li class="active"><a href="#">Transaction Detail</a></li>
             <li><a href="#">Transaction Analytics</a></li>
           </ul>
         </li>
@@ -292,7 +292,7 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        User Manager
+        Transactions
         <small>Optional description</small>
       </h1>
       <ol class="breadcrumb">
@@ -310,65 +310,50 @@ desired effect
         <div class="table-responsive">
           <table class="table table-striped">
             <tr>
-              <th>Username</th>
-              <th>Account Number</th>
-              <th>Email</th>
-              <th>Date Created</th>
-              <th>Last Updated</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>Payer</th>
+              <th>Amount</th>
+              <th>Payee</th>
+              <th>Account No.</th>
+              <th>Bank</th>
+              <th>Wallet Code</th>
+              <th>Reference Code</th>
+              <th>Date</th>
+              <td>Status</td>
             </tr>
             <tr>
               <td>Samfield</td>
+              <td>200000.00</td>
+              <td>Tobilight</td>
               <td>0054791254</td>
-              <td>samfield4sure@gmail.com</td>
+              <td>Access Bank</td>
+              <td>55881155</td>
+              <td>RF7845121</td>
               <td>12/9/2017</td>
-              <td>12/9/2017</td>
-              <td class="text-success">active</td>
-              <td>
-                <button class="btn btn-success">Edit</button>
-                <button class="btn btn-primary">Delete</button>
-               <button class="btn btn-danger">Ban</button>
-              </td>
+              <td class="text-success">Successful</td>
             </tr>
             <tr>
               <td>Samfield</td>
+              <td>100.00</td>
+              <td>trojan</td>
               <td>0054791254</td>
-              <td>samfield4sure@gmail.com</td>
+              <td>Access Bank</td>
+              <td>55881155</td>
+              <td>RF7845121</td>
               <td>12/9/2017</td>
-              <td>12/9/2017</td>
-              <td class="text-success">active</td>
-              <td>
-                 <button class="btn btn-success">Edit</button>
-                 <button class="btn btn-primary">Delete</button>
-                 <button class="btn btn-danger">Ban</button>
-              </td>
+              <td class="text-danger">failed</td>
             </tr>
             <tr>
+              <tr>
               <td>Samfield</td>
+              <td>5.00</td>
+              <td>gmaumoh</td>
               <td>0054791254</td>
-              <td>samfield4sure@gmail.com</td>
+              <td>Access Bank</td>
+              <td>55881155</td>
+              <td>RF7845121</td>
               <td>12/9/2017</td>
-              <td>12/9/2017</td>
-              <td class="text-danger">banned</td>
-              <td>
-               <button class="btn btn-success">Edit</button>
-                <button class="btn btn-primary">Delete</button>
-               <button class="btn btn-danger">Ban</button>
-              </td>
+              <td class="text-warning">pending</td>
             </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-               <td>
-                <button class="btn btn-success">Edit</button>
-                <button class="btn btn-primary">Delete</button>
-                 <button class="btn btn-danger">Ban</button></select>
-              </td>
             </tr>
 
           </table>
