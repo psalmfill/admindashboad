@@ -264,8 +264,7 @@ desired effect
         <!-- Optionally, you can add icons to the links -->
         <li><a href="index.html"><i class="fa fa-dashboard"></i> <span>DashBoard</span></a></li>
         <li><a href="manageuser.html"><i class="fa fa-group"></i> <span>Manage Users</span></a></li>
-        <li><a href="#"><i class="fa fa-group"></i> <span>Banned Users</span></a></li>
-        <li><a href="managewallet.html"><i class="fa fa-briefcase"></i> <span>Manage Wallet</span></a></li>
+         <li><a href="smscredit.html"><i class="fa fa-group"></i> <span>SMS Credits</span></a></li>Wallet</span></a></li>
         <li><a href="#"><i class="fa fa-dollar"></i> <span>Currencies</span></a></li>
         <li class="treeview active">
           <a href="#"><i class="fa fa-link"></i> <span>Transaction</span>
@@ -323,7 +322,7 @@ desired effect
               <td>Status</td>
             </tr>
             <tr>
-              <th>85464</th>
+              <td>85464</td>
               <td>Samfield</td>
               <td>005842265</td>
               <td>200000.00</td>
@@ -336,7 +335,7 @@ desired effect
               <td class="text-success">Successful</td>
             </tr>
             <tr>
-              <th>85444</th>
+              <td>85465</td>
               <td>Samfield</td>
               <td>005842265</td>
               <td>100.00</td>
@@ -349,7 +348,7 @@ desired effect
               <td class="text-danger">failed</td>
             </tr>
             <tr>
-              <th>85474</th>
+              <td>85466</td>
               <td>Samfield</td>
               <td>005842265</td>
               <td>5.00</td>
@@ -363,6 +362,27 @@ desired effect
             </tr>
           </table>
         </div>
+        <!-- /.box -->
+
+          <!-- BAR CHART -->
+          <div class="responsive">
+          <div class="box box-success">
+            <div class="box-header with-border">
+              <h3 class="box-title">Bar Chart</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body chart-responsive">
+              <div class="chart" id="bar-chart" style="height: 300px;"></div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          </div>
+          <!-- /.box -->
     </section>
     <!-- /.content -->
   </div>
@@ -466,8 +486,37 @@ desired effect
 <!-- AdminLTE App -->
 <script src="adminlte.js"></script>
 
+<!-- Morris.js charts -->
+<script src="https://adminlte.io/themes/AdminLTE/bower_components/raphael/raphael.min.js"></script>
+<script src="https://adminlte.io/themes/AdminLTE/bower_components/morris.js/morris.min.js"></script>
+
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
+    <script type="text/javascript">
+      $(function () {
+    "use strict";
+
+     //BAR CHART
+    var bar = new Morris.Bar({
+      element: 'bar-chart',
+      resize: true,
+      data: [
+        {y: '2006', a: 100, b: 90},
+        {y: '2007', a: 75, b: 65},
+        {y: '2008', a: 50, b: 40},
+        {y: '2009', a: 75, b: 65},
+        {y: '2010', a: 50, b: 40},
+        {y: '2011', a: 75, b: 65},
+        {y: '2012', a: 100, b: 90}
+      ],
+      barColors: ['#25313f', '#ff6200'],
+      xkey: 'y',
+      ykeys: ['a', 'b'],
+      labels: ['CPU', 'DISK'],
+      hideHover: 'auto'
+    });
+  });
+    </script>
 </body>
 </html>
