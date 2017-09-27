@@ -32,6 +32,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font -->
  <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        <style type="text/css">
+          .units {
+          background: #f39c12;
+          color: #fff;
+          margin:1%;
+          padding:2%;
+
+         } 
+        </style>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -289,73 +298,123 @@ desired effect
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        SMS Credit
-        <small>manage your bulk sms unit here</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
-      </ol>
+      <div class="row">
+        <div class="col-lg-6">
+          <h1>
+            SMS Wallet
+            
+          </h1>
+          <h2>Id:X846945532</h2>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active">Sms wallet</li>
+          </ol>
+        </div>
+        <div class="col-lg-3 pull-right">
+        <h2>Balance: 1500</h2>
+        <div>
+        <button class="btn btn-lg btn-warning btn-block">Top-Up Wallet</button>
+        </div>
+        </div>
+      </div><!--row ends-->
     </section>
 
     <!-- Main content -->
-    <section class="content container-fluid">
+    <section class="content container" id="bulksms">
+        <h3 class="text-center">EbulkSMS Account</h3>
 
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
         <button class="btn btn-success">Create New</button>
-        <div class="table-responsive">
-          <table class="table table-striped table-bordered table-hover">
-            <tr>
-              <th>Providers</th>
-              <th>Account Email</th>
-              <th>SMS Balance(Unit)</th>
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-            <tr>
-              <td>ebulksms</td>
-              <td>admin@transfer.hng.fun</td>
-              <td>1000</td>
-              <td class="text-success">active</td>
-              <td>
-                <button class="btn btn-success">Top up</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Kudisms</td>
-              <td>admin@transfer.hng.fun</td>
-              <td>1000</td>
-              <td class="text-default">disabled</td>
-              <td>
-                <button class="btn btn-success">Top up</button>
-              </td>
-            </tr>
-            <tr>
-              <td>bulksms.com</td>
-              <td>admin@transfer.hng.fun</td>
-              <td>1000</td>
-              <td class="text-default">disabled</td>
-              <td>
-                <button class="btn btn-success">Top up</button>
-              </td>
-            </tr>
-            <tr>
-              <td>freesms.com</td>
-              <td>admin@transfer.hng.fun</td>
-              <td>1000</td>
-              <td class="text-default">disabled</td>
-              <td>
-                <button class="btn btn-success">Top up</button>
-              </td>
-            </tr>
-            
-
-          </table>
+        <div class="row">
+          <div class="col-md-5 col-sm-10 units" >
+            <p>Email:johseph.mbassey2@gmail.com</p>
+            <p>Detail: Jonesky</p>
+            <p>Sms Unit: 1826.00</p>
+            <button type="button" class="btn btn-success btn-block " data-toggle="modal" data-target="#Jonesky">
+                Top up
+              </button>
+          </div>
+          <div class="col-md-5 col-sm-10 units" >
+            <p>Email:samfield4sure@gmail.com</p>
+            <p>Detail: Samfield</p>
+            <p>Sms Unit: 2000.00</p>
+            <button type="button" class="btn btn-success btn-block " data-toggle="modal" data-target="#samfield">
+                Top up
+              </button>
+          </div>
+          <div class="col-md-5 col-sm-10 units" >
+            <p>Email:godfredakpan@gmail.com</p>
+            <p>Detail: Godfred</p>
+            <p>Sms Unit: 500.00</p>
+            <button type="button" class="btn btn-success btn-block " data-toggle="modal" data-target="#godfred">
+                Top up
+              </button>
+          </div>
+          <div class="col-md-5 col-sm-10 units" >
+            <p>Email:jeo2@gmail.com</p>
+            <p>Detail: BigJeo</p..>
+            <p>Sms Unit: 1000.00</p>
+            <button type="button" class="btn btn-success btn-block " data-toggle="modal" data-target="#jeo">
+                Top up
+              </button>
+          </div>
+          
         </div>
     </section>
+    <!---Modal for Jonesky-->
+    <div class="modal fade" id="Jonesky">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">SMS Unit Top Up</h4>
+              </div>
+              <div class="modal-body">
+              <div class="box-header with-border">
+                <h3 class="box-title">EbulSms Details</h3>
+              </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <form role="form">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Email</label>
+                  <input class="form-control" value="johseph.mbassey2@gmail.com"  type="Email" disabled>
+                </div>
+                <div class="form-group">
+                  <label>Username</label>
+                  <input class="form-control" value="Jonesky"  type="text" disabled>
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input class="form-control" value="***********"  type="Password" disabled>
+                </div>
+
+                <div class="form-group">
+                  <label>Api Id</label>
+                  <input class="form-control" value="jjdcjf68fv25s8dxe4cvvrf8r8frf"  type="text" disabled>
+                </div>
+                 <div class="form-group">
+                  <label>Amount</label>
+                  <input class="form-control"  type="text" >
+                </div>
+                <input type="button" class="btn btn-block btn-warning" name="" value="Top-Up">
+              </form>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+      
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
