@@ -47,17 +47,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
    document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("topup").addEventListener("click", function(e) {
     var PBFKey = "FLWPUBK-aa82cac8ee08f5bb206f937db274081a-X";
-     var myAmount =document.getElementById("amountToPay").value;
-    
     getpaidSetup({
       PBFPubKey: PBFKey,
       customer_email: "user@example.com",
       customer_firstname: "Temi",
       customer_lastname: "Adelewa",
-      custom_description: "Pay Internet",
+      custom_description: "Fund Sms Wallet",
       custom_logo: "http://localhost/communique-3/skin/frontend/ultimo/communique/custom/images/logo.svg",
-      custom_title: "Communique Global System",
-      amount: myAmount,
+      custom_title: "TransferRules SMS Wallet",
+      amount: "",
       customer_phone: "234099940409",
       country: "NG",
       currency: "NGN",
@@ -434,7 +432,7 @@ desired effect
               </button>
           </div>
           <div class="col-md-3 col-sm-10 units" >
-            <p>Account Name: BigJeo</p..>
+            <p>Account Name: BigJeo</p>
             <p>Sms Unit: 1000.00</p>
             <button type="button" class="btn btn-success btn-block " data-toggle="modal" data-target="#jeo">
                 Top up
