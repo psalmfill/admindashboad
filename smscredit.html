@@ -21,6 +21,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/dist/css/skins/skin-blue.min.css">
+   <!--Rave Pay integration-->
+     <script type="text/javascript" src="http://flw-pms-dev.eu-west-1.elasticbeanstalk.com/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -560,8 +562,7 @@ desired effect
      Both of these plugins are recommended to enhance the
      user experience. -->
 
-     <!--Rave Pay integration-->
-     <script type="text/javascript" src="http://flw-pms-dev.eu-west-1.elasticbeanstalk.com/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
+    
 <script>
    document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("topup").addEventListener("click", function(e) {
