@@ -21,8 +21,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/dist/css/skins/skin-blue.min.css">
-   <!--Rave Pay integration-->
-     <script type="text/javascript" src="http://flw-pms-dev.eu-west-1.elasticbeanstalk.com/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,7 +41,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
          } 
         </style>
-
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -316,10 +313,9 @@ desired effect
         <div class="col-lg-3 pull-right">
         <h2>Balance: 1500</h2>
         <div>
-      <!--  <button type="button" class="btn btn-primary btn-block " data-toggle="modal" data-target="#walletTopUp">
+        <button type="button" class="btn btn-primary btn-block " data-toggle="modal" data-target="#walletTopUp">
                 Top up
-              </button>-->
-              <a class="flwpug_getpaid btn btn-primary" data-PBFPubKey="FLWPUBK-5bfc6d310982b2de8fbf0c98843a8a63-X" data-txref="rave-checkout-1506688603" data-amount="" data-customer_email="user@example.com" data-currency = "NGN" data-pay_button_text = "Top Up" data-country="NG" data-custom_title = "SmS Wallet" data-custom_description = "" data-redirect_url = "" data-custom_logo = "" data-payment_method = "card" data-exclude_banks="">Top Up</a>
+              </button>
         </div>
         </div>
       </div><!--row ends-->
@@ -562,7 +558,8 @@ desired effect
      Both of these plugins are recommended to enhance the
      user experience. -->
 
-    
+     <!--Rave Pay integration-->
+     <script type="text/javascript" src="http://flw-pms-dev.eu-west-1.elasticbeanstalk.com/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
 <script>
    document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("topup").addEventListener("click", function(e) {
@@ -601,7 +598,7 @@ desired effect
 });
 <!---->
 
-<]
+
 </script>
 </body>
 </html>
