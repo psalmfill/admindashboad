@@ -582,7 +582,7 @@ desired effect
       //integrity_hash: "6800d2dcbb7a91f5f9556e1b5820096d3d74ed4560343fc89b03a42701da4f30",
       onclose: function() {},
       callback: function(response) {
-        var flw_ref = response.tx.flwRef; // collect flwRef returned and pass to a          server page to complete status check.
+        var flw_ref = response.tx.flwRef; // collect flwRef returned and pass to a server page to complete status check.
         console.log("This is the response returned after a charge", response);
         if (
           response.tx.chargeResponse == "00" ||
