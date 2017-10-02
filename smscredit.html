@@ -41,6 +41,46 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
          } 
         </style>
+        <!--Rave Pay integration-->
+     <script type="text/javascript" src="http://flw-pms-dev.eu-west-1.elasticbeanstalk.com/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
+<script>
+   document.addEventListener("DOMContentLoaded", function(event) {
+  document.getElementById("topup").addEventListener("click", function(e) {
+    var PBFKey = "FLWPUBK-aa82cac8ee08f5bb206f937db274081a-X";
+    getpaidSetup({
+      PBFPubKey: PBFKey,
+      customer_email: "user@example.com",
+      customer_firstname: "Temi",
+      customer_lastname: "Adelewa",
+      custom_description: "Fund Sms Wallet",
+      custom_logo: "http://localhost/communique-3/skin/frontend/ultimo/communique/custom/images/logo.svg",
+      custom_title: "TransferRules SMS Wallet",
+      amount: "",
+      customer_phone: "234099940409",
+      country: "NG",
+      currency: "NGN",
+      txref: "rave-123456",
+      //integrity_hash: "6800d2dcbb7a91f5f9556e1b5820096d3d74ed4560343fc89b03a42701da4f30",
+      onclose: function() {},
+      callback: function(response) {
+        var flw_ref = response.tx.flwRef; // collect flwRef returned and pass to a server page to complete status check.
+        console.log("This is the response returned after a charge", response);
+        if (
+          response.tx.chargeResponse == "00" ||
+          response.tx.chargeResponse == "0"
+        ) {
+          // redirect to a success page
+        } else {
+          // redirect to a failure page.
+        }
+      }
+    });
+  });
+});
+<!---->
+
+
+</script>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -311,9 +351,9 @@ desired effect
           </ol>
         </div>
         <div class="col-lg-3 pull-right">
-        <h2>Balance: 1500</h2>
+        <h2 id="balance">Balance:</h2>
         <div>
-        <button type="button" class="btn btn-primary btn-block " data-toggle="modal" data-target="#walletTopUp">
+        <button type="button" class="btn btn-primary btn-block " id="topup"><!--data-toggle="modal" data-target="#walletTopUp">-->
                 Top up
               </button>
         </div>
@@ -348,7 +388,7 @@ desired effect
                   <label>Top-up Amount</label>
                   <input id="amountToPay" class="form-control"  type="text" >
                 </div>
-                <input type="button" class="btn btn-block btn-success" name="" id="topup"value="Top-Up">
+                <input type="button" class="btn btn-block btn-success" name="" id="topu1p" value="Top-Up">
               </form>
 
               </div>
@@ -379,7 +419,7 @@ desired effect
           </div>
           <div class="col-md-3 col-sm-10 units" >
             <p>Account Name: Samfield</p>
-            <p>Sms Unit: 2000.00</p>
+            <p>Sms Unit: <span id="samBal">2000.00</span></p>
             <button type="button" class="btn btn-success btn-block " data-toggle="modal" data-target="#samfield">
                 Top up
               </button>
@@ -392,7 +432,7 @@ desired effect
               </button>
           </div>
           <div class="col-md-3 col-sm-10 units" >
-            <p>Account Name: BigJeo</p..>
+            <p>Account Name: BigJeo</p>
             <p>Sms Unit: 1000.00</p>
             <button type="button" class="btn btn-success btn-block " data-toggle="modal" data-target="#jeo">
                 Top up
@@ -558,47 +598,75 @@ desired effect
      Both of these plugins are recommended to enhance the
      user experience. -->
 
-     <!--Rave Pay integration-->
-     <script type="text/javascript" src="http://flw-pms-dev.eu-west-1.elasticbeanstalk.com/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
 <script>
-   document.addEventListener("DOMContentLoaded", function(event) {
-  document.getElementById("topup").addEventListener("click", function(e) {
-    var PBFKey = "FLWPUBK-aa82cac8ee08f5bb206f937db274081a-X";
-     var myAmount =document.getElementById("amountToPay").value;
-    
-    getpaidSetup({
-      PBFPubKey: PBFKey,
-      customer_email: "user@example.com",
-      customer_firstname: "Temi",
-      customer_lastname: "Adelewa",
-      custom_description: "Pay Internet",
-      custom_logo: "http://localhost/communique-3/skin/frontend/ultimo/communique/custom/images/logo.svg",
-      custom_title: "Communique Global System",
-      amount: myAmount,
-      customer_phone: "234099940409",
-      country: "NG",
-      currency: "NGN",
-      txref: "rave-123456",
-      //integrity_hash: "6800d2dcbb7a91f5f9556e1b5820096d3d74ed4560343fc89b03a42701da4f30",
-      onclose: function() {},
-      callback: function(response) {
-        var flw_ref = response.tx.flwRef; // collect flwRef returned and pass to a          server page to complete status check.
-        console.log("This is the response returned after a charge", response);
-        if (
-          response.tx.chargeResponse == "00" ||
-          response.tx.chargeResponse == "0"
-        ) {
-          // redirect to a success page
-        } else {
-          // redirect to a failure page.
-        }
-      }
-    });
-  });
-});
+	var token = getToken();
+	bal = getWalletBalance(token);
+	getSmsUnitBalance("samfield4sure@gmail.com","08d7c1f091de6c7f0be841608ec9d5f1f4c50b88","samBal")
+	document.getElementById('balance').innerHTML += bal;
+	
+	if (bal<1000){
+		alert('Your SMS wallet balance is low');
+	}
+	
+	function getToken(){
+	var response = httpGet("ts_SNSO23Y07CSXI9P4J21X","ts_TIKO82S52NVFBHOPNM4P8YCPHNHDEB")
+	var jsonResponse = JSON.parse(response);
+	return jsonResponse['token'];
 
+		function httpGet(apikey,apisecret)
+			{	var xmlHttp = new XMLHttpRequest();
+				xmlHttp.open( "POST", "https://moneywave.herokuapp.com/v1/merchant/verify", false ); // false for synchronous request
+				xmlHttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+				xmlHttp.send('apiKey='+apikey+'&secret='+apisecret);//paramaters to send to the url 
+				return xmlHttp.responseText;
+			}
+	}
+//funtion to get wallet balance;
+	function getWalletBalance(token){
 
-
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.open( "get", 'https://moneywave.herokuapp.com/v1/wallet', false ); // false for synchronous request
+		xmlHttp.setRequestHeader('Authorization',token);
+		xmlHttp.send();
+		var res = JSON.parse(xmlHttp.responseText);
+		var data = res["data"];
+		return data[0]['balance'];
+	}
+//function to get sms unit balance 
+	function getSmsUnitBalance(username,key,divId){
+	
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.open( "get", "http://api.ebulksms.com:8080/balance/"+username+"/"+key, false ); // false for synchronous request
+		xmlHttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xmlHttp.send();
+		var res = xmlHttp.responseText; 
+		document.getElementById(divId).innerHTML = res;
+		if(res < 10){
+			alert('Your Sms unit balance at '+username+' is Low');
+		}
+	}
+	
+	//function to get api key 
+	function getSmsApiKey(username, password){
+		var xmlHttp = new XMLHttpRequest();
+		try{
+		
+		xmlHttp.open( "post",'http://api.ebulksms.com:8080/getapikey.json', false ); // false for synchronous request
+		xmlHttp.setRequestHeader("Accept", "application/json");
+		xmlHttp.send({
+					"auth": {
+						"username":"samfield4sure@gmail.com",
+						"password":"samfield"
+						}
+					});
+					
+				alert(xmlHttp.responseText);
+				}catch(e){
+					alert(e);
+				}
+				
+	}
+	//getSmsApiKey("samfield4sure@gmail.com","samfield");
 </script>
 </body>
 </html>
